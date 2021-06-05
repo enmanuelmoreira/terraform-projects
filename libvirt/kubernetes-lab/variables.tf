@@ -2,6 +2,10 @@ variable "os_image" {
   default = "https://cloud.centos.org/centos/8/x86_64/images/CentOS-8-GenericCloud-8.3.2011-20201204.2.x86_64.qcow2"
 }
 
+variable "ssh_key" {
+  default = "terraform-libvirt.pub"
+}
+
 variable "masters" {
   default = 1
 }
