@@ -10,6 +10,7 @@ resource "libvirt_volume" "masters-disks" {
 resource "libvirt_domain" "masters" {
   count  = var.masters
   name   = "master${count.index}"
+  #firmware = var.uefi
   memory = var.masters_memory
   vcpu   = var.masters_vcpu
   cpu = {
@@ -28,7 +29,7 @@ resource "libvirt_domain" "masters" {
     hostname     = "master${count.index}"
     network_name = "kubernetes"
     network_id   = libvirt_network.kubernetes-network.id
-    addresses = ["172.10.10.10${count.index}"]
+    addresses    = ["172.10.10.10${count.index}"]
   }
 }
 

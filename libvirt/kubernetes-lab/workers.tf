@@ -28,6 +28,6 @@ resource "libvirt_domain" "workers" {
     hostname     = "node${count.index}"
     network_name = "kubernetes"
     network_id   = libvirt_network.kubernetes-network.id
-    addresses = ["172.10.10.11${count.index}"]
+    addresses    = ["172.10.10.11${count.index}"]
   }
 }

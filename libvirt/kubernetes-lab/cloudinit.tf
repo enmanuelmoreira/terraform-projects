@@ -4,9 +4,9 @@ resource "libvirt_volume" "os" {
 }
 
 resource "libvirt_cloudinit_disk" "commoninit" {
-  name      = "commoninit.iso"
+  name = "commoninit.iso"
   user_data = templatefile("${path.module}/cloud_init.cfg", {
-    ssh_key  = file("${path.module}/ssh/${var.ssh_key}")
+    ssh_key = file("${path.module}/ssh/${var.ssh_key}")
   })
-  pool      = "iso"
+  pool = "iso"
 }
